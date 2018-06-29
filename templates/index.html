@@ -1,15 +1,28 @@
 <!doctype html>
 <html>
-    <head>
+     {% block content %}
+     <head>
         <title>{{title}}</title>
     </head>
+   
     <body>
     <h1>{{title}}</h1>
-        <form action="/signup" method="post">
-        <input type="text" name="user" placeholder="username">
-        <input type="text" name="password" placeholder="password">
-        <input type="text" name="email" placeholder="email">
-        <input type="submit">
-        </form>
+   
+        <form method = 'POST'>
+            <input id = "username" type="text" name = "username" placeholder="username"/>
+            {{user_error}}
+            <br>
+            <input id = "password" type = "password" name="password" placeholder="password"/>
+            {{password_error}}
+            <br>
+            <input id = "confirm" type = "password" name="confirm" placeholder="confirm password"/>
+            {{confirm_error}}
+            <br>
+            <input id = "email" type ="text" name="email" placeholder="email"/>
+            {{email_error}}
+            <br>
+            <input type="submit"/>
+        </form>    
     </body>
+    {% endblock %}
 </html>
