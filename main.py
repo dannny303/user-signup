@@ -22,14 +22,14 @@ def validate_form():
 
     if user == "":
         user_error = "Field cannot be empty"
-    elif len(user) > 3 or len(user) < 20:
+    elif len(user) < 3 or len(user) > 20:
         user_error = "Username must be between 3 and 20 characters"
     elif " " in user:
         user_error = "No spaces please"
 
     if password == "":
              password_error = "Field cannot be empty"
-    elif len(password) > 3 or len(password) < 20:
+    elif len(password) < 3 or len(password) > 20:
         password_error = "Password must be between 3 and 20 characters"
     
     elif " " in password:
@@ -41,7 +41,7 @@ def validate_form():
     elif confirm != password:
         confirm_error = "Passwords must match"
     
-    elif len(email) > 3 or len(email) < 20:
+    elif len(email) < 3 or len(email) > 20:
         email_error = "Email must be between 3 and 20 characters"
     elif " " in email:
         email_error = "No spaces please"
@@ -49,7 +49,7 @@ def validate_form():
     if not user_error and not password_error and not confirm_error and not email_error:
         return render_template('welcom.html')
     else:
-        return render_template('index.html', 
+        return render_template('index.html', title = "SignUp", 
         user_error = user_error, 
         password_error = password_error,
         confirm_error = confirm_error,
